@@ -6,6 +6,8 @@ const Dashboard = () => {
   const [metrics, setMetrics] = useState([]);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [currentPage, setCurrentPage] = useState(1); // Current page number
+  const [itemsPerPage, setItemsPerPage] = useState(5); // Number of items per page
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +24,7 @@ const Dashboard = () => {
     return () => clearInterval(interval);
   }, []);
 
+
   const filteredData = metrics.filter((metric) => {
     const metricDate = new Date(metric.timestamp);
     return (
@@ -29,6 +32,14 @@ const Dashboard = () => {
       (!endDate || metricDate <= new Date(endDate))
     );
   });
+
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="dashboard">
@@ -46,7 +57,7 @@ const Dashboard = () => {
       </div>
       <Charts data={filteredData} />
       <div className="metrics-list">
-        {filteredData.map((metric) => (
+        {currentItems.map((metric) => (
           <div key={metric.id} className="metric-card">
             <p>Time: {new Date(metric.timestamp).toLocaleString()}</p>
             <p>Heart Rate: {metric.heart_rate} BPM</p>
@@ -54,6 +65,22 @@ const Dashboard = () => {
             <p>Temperature: {metric.temperature} °C</p>
           </div>
         ))}
+      </div>
+
+      <div className="pagination">
+        <button
+          onClick={() => paginate(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <span>Page {currentPage}</span>
+        <button
+          onClick={() => paginate(currentPage + 1)}
+          disabled={indexOfLastItem >= filteredData.length}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
