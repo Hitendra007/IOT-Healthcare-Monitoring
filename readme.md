@@ -75,12 +75,7 @@ pip install -r requirements.txt
 ```
 
 #### 4. Set Up PostgreSQL
-1. Install PostgreSQL:
-   ```bash
-   sudo apt install postgresql postgresql-contrib  # Ubuntu
-   brew install postgresql                         # Mac
-   ```
-2. Create a database:
+1. Create a database:
    ```bash
    sudo -u postgres psql
    CREATE DATABASE healthdb;
@@ -88,14 +83,15 @@ pip install -r requirements.txt
    GRANT ALL PRIVILEGES ON DATABASE healthdb TO myuser;
    ```
 
-3. Update `settings.py`:
+2. Update `settings.py`:
+> load from env file 
    ```python
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql',
-           'NAME': 'healthdb',
-           'USER': 'myuser',
-           'PASSWORD': 'mypassword',
+           'NAME': '',
+           'USER': '',
+           'PASSWORD': '',
            'HOST': 'localhost',
            'PORT': '5432',
        }
@@ -115,6 +111,8 @@ python manage.py runserver
 
 #### 7. Simulate IoT Data
 In a new terminal, run:
+> simulate_iot.py simulates an iot device
+> backend\health_monitoring\scripts\simulate_iot.py
 ```bash
 python scripts/simulate_iot.py
 ```
@@ -148,7 +146,7 @@ http://localhost:5173
 
 
 ## API Endpoints
-
+> http://localhost:8000/api/metrics/
 ### Health Metrics
 - **GET `/api/metrics/`**: Fetch all health metrics.
 - **POST `/api/metrics/`**: Add a new health metric.
