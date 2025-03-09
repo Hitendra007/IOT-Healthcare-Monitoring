@@ -2,7 +2,7 @@
 # IoT-Based Smart Healthcare Monitoring System
 
 ## Project Overview
-This project is an IoT-based health monitoring system that collects health metrics (e.g., heart rate, blood pressure, temperature) from a simulated IoT device, stores the data in a PostgreSQL database, and displays it in a user-friendly dashboard using React.
+This is IoT-based health monitoring system that collects health metrics (e.g., heart rate, blood pressure, temperature) from a simulated IoT device, stores the data in a PostgreSQL database, and displays it in a user-friendly dashboard using React.
 
 ---
 
@@ -77,7 +77,6 @@ pip install -r requirements.txt
 #### 4. Set Up PostgreSQL
 1. Create a database:
    ```bash
-   sudo -u postgres psql
    CREATE DATABASE healthdb;
    CREATE USER myuser WITH PASSWORD 'mypassword';
    GRANT ALL PRIVILEGES ON DATABASE healthdb TO myuser;
