@@ -1,0 +1,50 @@
+
+# 🛑 Ignore Python & Django files
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+
+# 🛑 Ignore Virtual Environment
+env/
+venv/
+
+# 🛑 Ignore Environment Variables
+.env
+*.env
+
+# 🛑 Ignore Django Migrations (Compiled Bytecode, Keep Initial Migrations)
+**/migrations/*.pyc
+**/migrations/__pycache__
+
+# 🛑 Ignore Logs & Cache
+logs/
+*.log
+*.pid
+*.seed
+*.bak
+*.swp
+.cache
+.idea/
+.vscode/
+
+# 🛑 Ignore Static & Media Files (If auto-generated)
+staticfiles/
+media/
+
+# 🛑 Ignore Node.js / React / Vite (Frontend)
+node_modules/
+dist/
+*.cache
+*.lock
+package-lock.json
+yarn.lock
+
+# 🛑 Ignore VS Code & JetBrains IDE files
+.vscode/
+.idea/
+
+# 🛑 Ignore Docker Files (If Using)
+docker-compose.override.yml

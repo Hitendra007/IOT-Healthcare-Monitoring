@@ -1,0 +1,30 @@
+# Ignore Virtual Environment
+venv/
+
+# Ignore Python & Django Cache Files
+*.pyc
+__pycache__/
+
+# Ignore Environment Variables
+.env
+*.env
+
+# Ignore Database (If using SQLite)
+*.sqlite3
+db.sqlite3
+
+# Ignore Django Static & Media Files (If auto-generated)
+staticfiles/
+media/
+
+# Ignore Node.js (React/Vite) Files
+node_modules/
+dist/
+*.cache
+*.lock
+package-lock.json
+yarn.lock
+
+# Ignore VS Code & JetBrains IDE files
+.vscode/
+.idea/
