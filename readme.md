@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/79f54a64-4cf3-4a5f-b7a3-fcc753fb512e)
+![image](https://github.com/user-attachments/assets/d525cf62-0ee8-46cc-9a4f-3165b25003da)
 
 # IoT-Based Smart Healthcare Monitoring System
 
